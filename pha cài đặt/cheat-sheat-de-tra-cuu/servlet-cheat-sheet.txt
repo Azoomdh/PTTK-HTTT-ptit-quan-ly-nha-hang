@@ -1,0 +1,62 @@
+Servlet Cheat Sheet:
+
+1. Servlet Basics:
+- A servlet is a Java class that extends the javax.servlet.http.HttpServlet class.
+- It is used to handle HTTP requests and generate HTTP responses.
+- Servlets are deployed on a web server and run in a servlet container.
+
+2. Servlet Lifecycle:
+- Initialization: The servlet container calls the init() method to initialize the servlet.
+- Request Handling: The service() method is called for each incoming request.
+- Destruction: The destroy() method is called when the servlet is being removed from the container.
+
+3. Servlet Annotations:
+- @WebServlet: Used to define a servlet and its mapping in a Java class.
+  Example: @WebServlet("/example")
+
+4. Request Handling:
+- HttpServletRequest: Represents an incoming HTTP request.
+- HttpServletResponse: Represents an outgoing HTTP response.
+- doGet(): Handles HTTP GET requests.
+- doPost(): Handles HTTP POST requests.
+- doPut(): Handles HTTP PUT requests.
+- doDelete(): Handles HTTP DELETE requests.
+
+5. Request Parameters:
+- request.getParameter(String name): Retrieves the value of a request parameter.
+- request.getParameterValues(String name): Retrieves multiple values of a request parameter.
+- request.getParameterMap(): Retrieves all request parameters as a Map.
+
+6. Session Management:
+- HttpSession: Represents a user session.
+- request.getSession(): Retrieves the current session or creates a new one if none exists.
+- session.setAttribute(String name, Object value): Sets an attribute in the session.
+- session.getAttribute(String name): Retrieves the value of an attribute from the session.
+- session.invalidate(): Invalidates the session.
+
+7. Redirects and Forwards:
+- response.sendRedirect(String location): Redirects the client to a new URL.
+- request.getRequestDispatcher(String path).forward(request, response): Forwards the request to another servlet or JSP page.
+
+8. Error Handling:
+- web.xml: The deployment descriptor file where error pages can be configured.
+- <error-page>: Used to define error pages for specific HTTP error codes.
+  Example: <error-page>
+              <error-code>404</error-code>
+              <location>/error404.jsp</location>
+           </error-page>
+
+9. Servlet Filters:
+- A servlet filter intercepts and modifies requests and responses.
+- It can be used for tasks like authentication, logging, compression, etc.
+- @WebFilter: Used to define a filter in a Java class.
+  Example: @WebFilter("/example/*")
+
+10. Servlet Context:
+- ServletContext: Represents the context of a web application.
+- getServletContext(): Retrieves the ServletContext object.
+- getRealPath(String path): Retrieves the real path of a file in the web application.
+- setAttribute(String name, Object value): Sets an attribute in the servlet context.
+- getAttribute(String name): Retrieves the value of an attribute from the servlet context.
+
+Remember to refer to the official Java Servlet API documentation for more detailed information and examples.
